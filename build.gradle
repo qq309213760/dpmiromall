@@ -1,0 +1,24 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        mavenLocal()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:3.4.2"
+        classpath 'com.kezong:fat-aar:1.2.3'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenLocal()
+        maven {url 'https://dl.bintray.com/youzanyun/maven/'}
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

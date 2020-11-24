@@ -1,0 +1,73 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.kezong.fat-aar'
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        minSdkVersion 16
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            //buildConfigField "boolean", "LOG_DEBUG", "false" // 不显示Log
+           // minifyEnabled true//打开releae模式混淆
+           // proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug{
+           // buildConfigField "boolean", "LOG_DEBUG", "true" // 显示Log
+           // minifyEnabled false//打开debug模式混淆
+            //proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    ndkVersion '21.3.6528147'
+
+
+    flavorDimensions "default"
+
+    productFlavors {
+
+        flavor1 {
+
+        }
+
+        flavor2 {
+
+        }
+    }
+
+    packagingOptions {
+        exclude 'lib/x86/*.so'
+        exclude 'lib/x86_64/*.so'
+        exclude 'lib/armeabi/*.so'
+        exclude 'lib/arm64-v8a/*.so'
+    }
+}
+
+configurations.embed.transitive = true
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    embed 'com.lzy.net:okgo:3.0.4'
+    embed 'com.youzanyun.open.mobile:x5sdk:7.0.0'
+    implementation  ('androidx.appcompat:appcompat:1.2.0'){
+        exclude(group:'androidx.appcompat', module:'appcompat')
+    }
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+    implementation files('libs\\fastjson-1.1.46.android.jar')
+    implementation files('libs\\commons-codec-1.15.jar')
+}

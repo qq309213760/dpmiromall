@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_height="match_parent">
+
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_gravity="center"
+        android:layout_height="100dp"
+        android:text="打开商城"
+        android:onClick="openMicroMall"
+        tools:ignore="MissingConstraints"></Button>
+
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_gravity="center"
+        android:layout_height="100dp"
+        android:text="测试"
+        android:onClick="openAes"
+        tools:ignore="MissingConstraints"></Button>
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_gravity="center"
+        android:layout_height="100dp"
+        android:text="登出"
+        android:onClick="openLoginOut"
+        tools:ignore="MissingConstraints"></Button>
+
+</LinearLayout>
